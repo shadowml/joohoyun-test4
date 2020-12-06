@@ -1,4 +1,5 @@
-from fastapi import FastAPI
+# from fastapi import FastAPI
+from fastapi import FastAPI, File, UploadFile
 from pydantic import BaseModel
 
 import joblib
