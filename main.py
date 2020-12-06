@@ -17,7 +17,7 @@ class City(BaseModel):
     timezone: str
 
 @app.post("/uploadfile")
-async def check(file: UploadFile = File(...)):
+def check(file: UploadFile = File(...)):
     if file.filename.endswith('.csv'):
         df = pd.read_csv(file.file)
         df_head = df.head(5)
