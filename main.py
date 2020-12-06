@@ -29,7 +29,7 @@ def check(file: UploadFile = File(...)):
         head = eval(head)
         tail = eval(tail)
         # create_db_table()
-        insert_data(uuid=1,itemname=file.file.read())
+        # insert_data(uuid=1,itemname=file.file.read())
         # final return
         return {
             "head":head,
