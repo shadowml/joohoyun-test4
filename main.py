@@ -155,6 +155,9 @@ def delete_city(city_id: int):
 
 @app.get("/get_csv")
 async def get_csv():
+    from fastapi.responses import StreamingResponse
+    from io import StringIO
+    import io
     datastuff =  {'colors':['blue','red'],'volume':[22,55]}
     df=pd.DataFrame(datastuff)
     response=StreamingResponse(io.StringIO(df.to_csv(index=False)), media_type="text/csv")
