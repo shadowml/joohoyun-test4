@@ -153,6 +153,14 @@ def delete_city(city_id: int):
     db.pop(city_id-1)
     return {}
 
+@app.get("/get_csv")
+async def get_csv():
+    datastuff =  {'colors':['blue','red'],'volume':[22,55]}
+    df=pd.DataFrame(datastuff)
+    response=StreamingResponse(io.StringIO(df.to_csv(index=False)), media_type="text/csv")
+    response.headers["Content-Disposition"]="attachment; filename=export-999.csv"
+    return response
+
 # class City(BaseModel):
 #     name: str
 #     timezone: str
